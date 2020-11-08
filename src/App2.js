@@ -38,7 +38,10 @@ function App2() {
           <spam className="text-title">
             Pajaros de Chile por Fabián Skármeta
           </spam>
-          <p>API proveída por ninjas.cl</p>
+          <p>
+            API proveída por{" "}
+            <a href="https://ninjas.cl">Ninjas.cl (Camilo Castro)</a>
+          </p>
         </div>
         <div className="container">
           <BirdBox birds={birds} />
