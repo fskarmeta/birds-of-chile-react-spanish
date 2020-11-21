@@ -6,4 +6,4 @@
 
 Work in progress
 
-![Alt Text](./gif.gif)
+![Alt Text](./birds2.gif)
