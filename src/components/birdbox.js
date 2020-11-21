@@ -1,22 +1,26 @@
-const BirdBox = ({ birds }) => {
+const BirdBox = ({ birds, current }) => {
   return (
     <>
-      {birds.map((bird, index) => (
-        <div className="box-scene" key={index}>
-          <div className="box">
-            <div className="font face">
-              <img
-                src={bird.images.main}
-                alt={`Imagen de ${bird.name.spanish}`}
-              />
+      {!!birds &&
+        birds
+          .filter((bird) => bird.name.spanish.includes(current))
+          .sort()
+          .map((bird, index) => (
+            <div className="box-scene" key={index}>
+              <div className="box">
+                <div className="font face">
+                  <img
+                    src={bird.images.main}
+                    alt={`Imagen de ${bird.name.spanish}`}
+                  />
+                </div>
+                <div className="side face">
+                  <h2>{bird.name.spanish}</h2>
+                  <p>{bird.name.latin}</p>
+                </div>
+              </div>
             </div>
-            <div className="side face">
-              <h2>{bird.name.spanish}</h2>
-              <p>{bird.name.latin}</p>
-            </div>
-          </div>
-        </div>
-      ))}
+          ))}
     </>
   );
 };

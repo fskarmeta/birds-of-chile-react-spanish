@@ -12,6 +12,8 @@ function App2() {
     },
   ]);
 
+  const [current, setCurrent] = useState("");
+
   useEffect(() => {
     fetch("https://aves.ninjas.cl/api/birds")
       .then((res) => res.json())
@@ -30,21 +32,72 @@ function App2() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Tus pajaritos vienen volando....</div>;
+    return (
+      <div className="ultra-container">
+        <div className="title">
+          <spam className="text-title">
+            Pájaros de Chile por{" "}
+            <a
+              href="https://github.com/fskarmeta"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Fabian Skármeta
+            </a>
+          </spam>
+          <p class="subtitle">
+            API proveída por{" "}
+            <a href="https://ninjas.cl" target="_blank" rel="noreferrer">
+              Ninjas.cl (Camilo Castro)
+            </a>
+          </p>
+          <form action="" class="birds-form">
+            <label htmlFor="fname">Filter: </label>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              onChange={(e) => setCurrent(e.target.value)}
+            />
+          </form>
+        </div>
+        <div className="container">
+          <p>Tus pajaritos vienen volando.....</p>
+        </div>
+      </div>
+    );
   } else {
     return (
       <div className="ultra-container">
         <div className="title">
           <spam className="text-title">
-            Pajaros de Chile por Fabián Skármeta
+            Pájaros de Chile por{" "}
+            <a
+              href="https://github.com/fskarmeta"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Fabian Skármeta
+            </a>
           </spam>
-          <p>
+          <p class="subtitle">
             API proveída por{" "}
-            <a href="https://ninjas.cl">Ninjas.cl (Camilo Castro)</a>
+            <a href="https://ninjas.cl" target="_blank" rel="noreferrer">
+              Ninjas.cl (Camilo Castro)
+            </a>
           </p>
+          <form action="" class="birds-form">
+            <label htmlFor="fname">Filter: </label>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              onChange={(e) => setCurrent(e.target.value)}
+            />
+          </form>
         </div>
         <div className="container">
-          <BirdBox birds={birds} />
+          <BirdBox birds={birds} current={current} />
         </div>
       </div>
     );
