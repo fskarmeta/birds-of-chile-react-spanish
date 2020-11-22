@@ -139,4 +139,5 @@ a {
 
 input[type="text"] {
   font-family: "Architects Daughter", cursive;
+  text-transform: capitalize;
 }

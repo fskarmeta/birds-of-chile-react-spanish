@@ -29,6 +29,15 @@ function App2() {
       );
   }, []);
 
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  function filter(e) {
+    let currentText = e.target.value;
+    setCurrent(capitalize(currentText));
+  }
+
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -51,15 +60,6 @@ function App2() {
               Ninjas.cl (Camilo Castro)
             </a>
           </p>
-          <form action="" class="birds-form">
-            <label htmlFor="fname">Filter: </label>
-            <input
-              type="text"
-              id="fname"
-              name="fname"
-              onChange={(e) => setCurrent(e.target.value)}
-            />
-          </form>
         </div>
         <div className="container">
           <p>Tus pajaritos vienen volando.....</p>
@@ -92,7 +92,7 @@ function App2() {
               type="text"
               id="fname"
               name="fname"
-              onChange={(e) => setCurrent(e.target.value)}
+              onChange={(e) => filter(e)}
             />
           </form>
         </div>
